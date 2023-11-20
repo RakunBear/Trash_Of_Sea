@@ -104,14 +104,7 @@ namespace Mediapipe.Unity
       bootstrap.enabled = true;
 
       // hide menu button when trying a single scene.
-      DisableMenuButton();
       return bootstrap;
-    }
-
-    private void DisableMenuButton()
-    {
-      var menuButton = GameObject.Find("MenuButton");
-      menuButton.SetActive(false);
     }
   }
 }

@@ -52,5 +52,5 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "Trash of the sea.sln"
+    "dotnet.defaultSolution": "Trash_Of_Sea.sln"
 }
