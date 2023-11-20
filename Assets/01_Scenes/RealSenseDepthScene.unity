@@ -1031,6 +1031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4129931701078781}
   - component: {fileID: 114070131101159845}
+  - component: {fileID: 114070131101159846}
   m_Layer: 0
   m_Name: Depth
   m_TagString: Untagged
@@ -1134,6 +1135,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &114070131101159846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509775701836303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89926ad43d98534cbbb107a7dc01615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rsStreamTextureRenderer: {fileID: 114070131101159845}
 --- !u!114 &114552477821033843
 MonoBehaviour:
   m_ObjectHideFlags: 0

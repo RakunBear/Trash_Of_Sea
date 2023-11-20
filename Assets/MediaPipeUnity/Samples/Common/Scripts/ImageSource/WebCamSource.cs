@@ -18,6 +18,7 @@ namespace Mediapipe.Unity
 {
   public class WebCamSource : ImageSource
   {
+    [SerializeField] private int _camIndex = 1;
     [Tooltip("For the default resolution, the one whose width is closest to this value will be chosen")]
     [SerializeField] private int _preferableDefaultWidth = 1280;
 
@@ -136,7 +137,7 @@ namespace Mediapipe.Unity
 
       if (availableSources != null && availableSources.Length > 0)
       {
-        webCamDevice = availableSources[0];
+        webCamDevice = availableSources[_camIndex];
       }
 
       _isInitialized = true;
@@ -200,6 +201,7 @@ namespace Mediapipe.Unity
       }
 
       InitializeWebCamTexture();
+      Debug.Log(webCamDevice.Value.name);
       webCamTexture.Play();
       yield return WaitForWebCamTexture();
     }

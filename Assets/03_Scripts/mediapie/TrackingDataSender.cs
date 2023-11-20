@@ -4,7 +4,13 @@ using UnityEngine;
 
 public static class TrackingDataSender
 {
-    public static Vector3 leftHandPos;
-    public static Vector3 rightHandPos;
+    public static HandStatus LeftHandStatus;
+    public static HandStatus RightHandStatus;
     
+    public struct HandStatus
+    {
+        public bool IsActive;
+        public Vector3 Position;
+        public Vector3 NomerizedPos;
+    }
 }
