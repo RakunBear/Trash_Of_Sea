@@ -30,6 +30,8 @@ namespace Mediapipe.Unity
     private static readonly Vector3[] _EmptyPositions = new Vector3[] { Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero };
     private Vector3 prevPos;
     private Vector2 prevSize;
+    private Vector2 nomerizedPos;
+    private Hand currentHandedness;
 
     private void OnEnable()
     {
@@ -41,6 +43,15 @@ namespace Mediapipe.Unity
     {
       ApplyLineWidth(0.0f);
       _lineRenderer.SetPositions(_EmptyPositions);
+      
+      if (currentHandedness == Hand.Left)
+      {
+        TrackingDataSender.LeftHandStatus.IsActive = false;
+      } 
+      else if (currentHandedness == Hand.Right)
+      {
+        TrackingDataSender.RightHandStatus.IsActive = false;
+      }
     }
 
 #if UNITY_EDITOR
@@ -104,6 +115,7 @@ namespace Mediapipe.Unity
       if (ActivateFor(target))
       {
         Draw(GetScreenRect().GetRectVertices(target, imageSize, rotationAngle, isMirrored));
+        
       }
     }
 
@@ -112,6 +124,7 @@ namespace Mediapipe.Unity
       if (ActivateFor(target))
       {
         Draw(GetScreenRect().GetRectVertices(target, rotationAngle, isMirrored));
+        nomerizedPos = new Vector2(target.XCenter, target.YCenter);
       }
     }
 
@@ -195,16 +208,21 @@ namespace Mediapipe.Unity
 
       if (handedness == Hand.Left)
       {
-        TrackingDataSender.leftHandPos = prevPos;
+        TrackingDataSender.LeftHandStatus.Position = prevPos;
+        TrackingDataSender.LeftHandStatus.NomerizedPos = nomerizedPos;
+        TrackingDataSender.LeftHandStatus.IsActive = true;
       }
       else
       {
-        TrackingDataSender.rightHandPos = prevPos;
+        TrackingDataSender.RightHandStatus.Position = prevPos;
+        TrackingDataSender.RightHandStatus.NomerizedPos = nomerizedPos;
+        TrackingDataSender.RightHandStatus.IsActive = true;
       }
     }
 
     public void SetHandedness(Hand handedness)
     {
+      currentHandedness = handedness;
       if (handedness == Hand.Left)
       {
         SetColor(_leftRectColor);
