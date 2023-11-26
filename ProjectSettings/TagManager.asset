@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Cube_lt
+  - Note
+  - Cube_rt
+  - Stick_Red
+  - Stick_Blue
+  - Rect
+  - DamageObject
   layers:
   - Default
   - TransparentFX
