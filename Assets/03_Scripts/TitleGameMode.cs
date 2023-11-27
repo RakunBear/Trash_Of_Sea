@@ -34,11 +34,9 @@ public class TitleGameMode : MonoBehaviour
     }
 
     IEnumerator NextSceneLoading() {
-        if (DBManager.Manager == null) {
-            Debug.LogError("Missing DBManager");
-        }
-        DBManager.Manager.TargetBookName = "Book1";
-        DBManager.Manager.NextSceneName = "CrainGame";
+
+        DBManager.TargetBookName = "Book1";
+        DBManager.NextSceneName = "CrainGame";
         yield return zoomEffect.RunZoomIn();
         LoadingScene.LoadScene(SceneName);
     }

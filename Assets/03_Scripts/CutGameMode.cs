@@ -9,7 +9,7 @@ public class CutGameMode : MonoBehaviour
     private CutBook cutBook;
 
     private void Start() {
-        StartCoroutine(LoadBook(DBManager.Manager.TargetBookName));
+        StartCoroutine(LoadBook(DBManager.TargetBookName));
     }
 
     public IEnumerator LoadBook(string bookName) {
@@ -19,7 +19,7 @@ public class CutGameMode : MonoBehaviour
 
         if (cutBook) {
             yield return cutBook.Playing();
-            LoadingScene.LoadScene(DBManager.Manager?.NextSceneName);
+            LoadingScene.LoadScene(DBManager.NextSceneName);
         }
     }
 }
