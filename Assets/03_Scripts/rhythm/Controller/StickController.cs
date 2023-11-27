@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class StickController : MonoBehaviour
 {
+    [SerializeField]
+    TrackingDataReciver _trackingDataReciver;
+
     public float stickSpeed = 3f;
     private Vector3 initialPosition;
     private bool isSwingingLt = false;
@@ -15,10 +18,17 @@ public class StickController : MonoBehaviour
 
     TimingManager timingManager;
 
+    private void OnDestroy() {
+        _trackingDataReciver.LeftOnValueChage -= LSwing;
+        _trackingDataReciver.RightOnValueChange -= RSwing;
+    }
+
     void Start()
     {
         initialPosition = transform.position;
         timingManager = FindObjectOfType<TimingManager>();
+        _trackingDataReciver.LeftOnValueChage += LSwing;
+        _trackingDataReciver.RightOnValueChange += RSwing;
         Debug.Log(this.gameObject.tag);
     }
 
@@ -29,12 +39,29 @@ public class StickController : MonoBehaviour
             targetAngle = -135f;
             StartCoroutine(SwingStickLt());
         }
-
         else if (Input.GetKeyDown(KeyCode.D) && !isSwingingRt && gameObject.tag == "Stick_Blue")
         {
             targetAngle = 135f;
             StartCoroutine(SwingStickRt());
         }
+    }
+
+    public void LSwing(bool isSwing)
+    {
+        if (!(gameObject.tag == "Stick_Red")) return;
+        if (!isSwing) return;
+
+        targetAngle = -135f;
+        StartCoroutine(SwingStickLt());
+    }
+
+    public void RSwing(bool isSwing)
+    {
+        if (!(!isSwingingRt && gameObject.tag == "Stick_Blue")) return;
+        if (!isSwing) return;
+
+        targetAngle = 135f;
+        StartCoroutine(SwingStickRt());
     }
 
     IEnumerator SwingStickLt()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,27 @@ public class TrackingDataReciver : MonoBehaviour
 {
     [SerializeField] Image _lImg;
     [SerializeField] Image _rImg;
+
+    public Action<bool> LeftOnValueChage;
+    public Action<bool> RightOnValueChange;
+
+    private bool _isL_Click = false;
+    public bool IsL_Click
+    {
+        get
+        {
+            return _isL_Click;
+        }
+    }
+    private bool _isR_Click = false;
+    public bool IsR_Click
+    {
+        get
+        {
+            return _isR_Click;
+        }
+    }
+
 
     public Coroutine coroutine;
 
@@ -28,51 +50,70 @@ public class TrackingDataReciver : MonoBehaviour
     {
         while (true)
         {
+            // 왼쪽손
             if (TrackingDataSender.LeftHandStatus.IsActive)
             {
                 int code = CheckPass(TrackingDataSender.LeftHandStatus.Position.z);
+                //인식 (가까이)
                 if (code == 1)
                 {
-                    if (!_lImg.enabled)
-                        _lImg.enabled = true;
+                    LeftHandMethod(true);
                 }
-                else if (code == 2)
+                else if (code == 2) // depth 멀리
                 {
-                    if (_lImg.enabled)
-                        _lImg.enabled = false;
+                    LeftHandMethod(false);
                 }
 
                 
             }
             else
             {
-                if (_lImg.enabled)
-                        _lImg.enabled = false;
+                LeftHandMethod(false);
             }
 
+            // 오른쪽 손
             if (TrackingDataSender.RightHandStatus.IsActive)
             {
                 int code = CheckPass(TrackingDataSender.RightHandStatus.Position.z);
                 if (code == 1)
                 {
-                    if (!_rImg.enabled)
-                        _rImg.enabled = true;
+                    RightHandMethod(true);
+                    
                 }
                 else if (code == 2)
                 {
-                    if (_rImg.enabled)
-                        _rImg.enabled = false;
+                    RightHandMethod(false);
                 }
             }
             else
             {
-                if (_rImg.enabled)
-                    _rImg.enabled = false;
+                RightHandMethod(false);
             }
 
             yield return null;
         }
     }
+
+    protected void LeftHandMethod(bool click)
+    {
+        if(_isL_Click == click) return;
+
+        _lImg.enabled = click;
+        _isL_Click = click;
+
+        LeftOnValueChage?.Invoke(click);
+    }
+    protected void RightHandMethod(bool click)
+    {
+        if(_isR_Click == click) return;
+
+        _rImg.enabled = click;
+        _isR_Click = click;
+
+        RightOnValueChange?.Invoke(click);
+    }
+
+    protected
 
     private int CheckPass(float depth)
     {

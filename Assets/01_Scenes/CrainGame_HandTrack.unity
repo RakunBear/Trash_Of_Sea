@@ -1455,6 +1455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab9bcce14370b547beaf040ace47826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trackingDataReciver: {fileID: 1997094633}
   stickSpeed: 3
 --- !u!54 &1285808192
 Rigidbody:
@@ -1521,6 +1522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab9bcce14370b547beaf040ace47826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trackingDataReciver: {fileID: 1997094633}
   stickSpeed: 3
 --- !u!65 &1398432595
 BoxCollider:
