@@ -137,7 +137,8 @@ namespace Mediapipe.Unity
 
       if (availableSources != null && availableSources.Length > 0)
       {
-        webCamDevice = availableSources[_camIndex];
+                Debug.Log(_camIndex);
+           webCamDevice = availableSources[_camIndex];
       }
 
       _isInitialized = true;
