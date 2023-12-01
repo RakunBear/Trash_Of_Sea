@@ -14,22 +14,22 @@ public class CubeMovement : MonoBehaviour
 
     void Start()
     {
-
+        float yPos = 0f;
 
         if (gameObject.tag == "Cube_lt")
         {
             // 큐브의 초기 위치를 설정
-            startPosition = new Vector3(-1.5f, 0, 30);
+            startPosition = new Vector3(-1.5f, yPos, 30);
             // 목표 위치를 설정
-            targetPosition = new Vector3(-1.5f, 0, -7);
+            targetPosition = new Vector3(-1.5f, yPos, -7);
         }
 
         if (gameObject.tag == "Cube_rt")
         {
             // 큐브의 초기 위치를 설정
-            startPosition = new Vector3(1.5f, 0, 30);
+            startPosition = new Vector3(1.5f, yPos, 30);
             // 목표 위치를 설정
-            targetPosition = new Vector3(1.5f, 0, -7);
+            targetPosition = new Vector3(1.5f, yPos, -7);
         }
 
         transform.position = startPosition;
