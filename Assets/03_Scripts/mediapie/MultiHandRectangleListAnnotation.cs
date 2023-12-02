@@ -5,6 +5,7 @@
 // https://opensource.org/licenses/MIT.
 
 using System.Collections.Generic;
+using System.Linq;
 using Google.Protobuf.Reflection;
 using UnityEngine;
 
@@ -20,7 +21,16 @@ namespace Mediapipe.Unity
     [SerializeField] private Color _rightRectColor = Color.red;  
     [SerializeField, Range(0, 1)] private float _lineWidth = 1.0f;
 
-    
+    private void OnDisable() {
+      Invoke("ReCheckCount0",0.05f);
+        
+    }
+    private void ReCheckCount0()
+    {
+      if (gameObject.activeSelf == true) return;
+      TrackingDataSender.RightHandStatus.IsActive = false;
+      TrackingDataSender.LeftHandStatus.IsActive = false;
+    }
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -111,13 +121,22 @@ namespace Mediapipe.Unity
     public void SetHandedness(IList<ClassificationList> handedness)
     {
       var count = handedness == null ? 0 : handedness.Count;
+
+      if (count == 1)
+      {
+        if(handedness.First().Classification[0].Label == "Left")
+        {
+          TrackingDataSender.RightHandStatus.IsActive = false;
+        }
+        else
+        {
+          TrackingDataSender.LeftHandStatus.IsActive = false;
+        }
+      }
+
       for (var i = 0; i < Mathf.Min(count, children.Count); i++)
       {
         children[i].SetHandedness(handedness[i]);
-      }
-      for (var i = count; i < children.Count; i++)
-      {
-        children[i].SetHandedness((IList<Classification>)null);
       }
     }
   }
