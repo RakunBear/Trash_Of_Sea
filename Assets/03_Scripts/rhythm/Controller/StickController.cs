@@ -11,10 +11,17 @@ public class StickController : MonoBehaviour
     private bool isSwingingLt = false;
     private bool isSwingingRt = false;
 
-
     private float targetAngle = -135f;
     private float swingTime = 0.3f;
     private float progress = 0f;
+
+    Vector3 LTInitialPosition = new Vector3(-3f, 5f, -3f);
+    Vector3 LTTargetPosition = new Vector3(-3f, 1f, -3f);
+    Vector3 RTInitialPosition = new Vector3(1f, 5f, -3f);
+    Vector3 RTTargetPosition = new Vector3(1f, 1f, -3f);
+
+    public GameObject ltHook;
+    public GameObject rtHook;
 
     TimingManager timingManager;
 
@@ -77,11 +84,14 @@ public class StickController : MonoBehaviour
             {
                 Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
                 transform.rotation = Quaternion.Lerp(Quaternion.identity, targetRotation, progress * 2);
+                ltHook.transform.position = Vector3.Lerp(LTInitialPosition, LTTargetPosition, progress * 2);
             }
             else
             {
                 Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
                 transform.rotation = Quaternion.Lerp(Quaternion.Euler(0f, 0f, targetAngle), targetRotation, (progress - 0.5f) * 2);
+                ltHook.transform.position = Vector3.Lerp(LTTargetPosition, LTInitialPosition, (progress - 0.5f) * 2);
+
             }
 
             yield return null;
@@ -103,11 +113,14 @@ public class StickController : MonoBehaviour
             {
                 Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
                 transform.rotation = Quaternion.Lerp(Quaternion.identity, targetRotation, progress * 2);
+                rtHook.transform.position = Vector3.Lerp(RTInitialPosition, RTTargetPosition, progress * 2);
             }
             else
             {
                 Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
                 transform.rotation = Quaternion.Lerp(Quaternion.Euler(0f, 0f, targetAngle), targetRotation, (progress - 0.5f) * 2);
+                rtHook.transform.position = Vector3.Lerp(RTTargetPosition, RTInitialPosition, (progress - 0.5f) * 2);
+
             }
 
             yield return null;
