@@ -17,6 +17,14 @@ public class StickController : MonoBehaviour
     private float progress = 0f;
 
     TimingManager timingManager;
+    public GameObject crainLT;
+    public GameObject crainRT;
+
+    Vector3 crainLtInitialPosition = new Vector3(-3f, 5f, -3f);
+    Vector3 crainLtTargetPosition = new Vector3(-3f, 1f, -3f);
+
+    Vector3 crainRtInitialPosition = new Vector3(1f, 5f, -3f);
+    Vector3 crainRtTargetPosition = new Vector3(1f, 1f, -3f);
 
     private void OnDestroy() {
         _trackingDataReciver.LeftOnValueChage -= LSwing;
@@ -69,6 +77,8 @@ public class StickController : MonoBehaviour
         isSwingingLt = true;
         progress = 0f;
 
+
+
         while (progress <= 1f)
         {
             progress += Time.deltaTime / swingTime * stickSpeed;
@@ -77,15 +87,20 @@ public class StickController : MonoBehaviour
             {
                 Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
                 transform.rotation = Quaternion.Lerp(Quaternion.identity, targetRotation, progress * 2);
+
+                crainLT.transform.position = Vector3.Lerp(crainLtInitialPosition, crainLtTargetPosition, progress * 2);
             }
             else
             {
                 Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
                 transform.rotation = Quaternion.Lerp(Quaternion.Euler(0f, 0f, targetAngle), targetRotation, (progress - 0.5f) * 2);
+
+                crainLT.transform.position = Vector3.Lerp(crainLtTargetPosition, crainLtInitialPosition, (progress - 0.5f) * 2);
             }
 
             yield return null;
         }
+
 
         isSwingingLt = false;
     }
@@ -103,11 +118,17 @@ public class StickController : MonoBehaviour
             {
                 Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
                 transform.rotation = Quaternion.Lerp(Quaternion.identity, targetRotation, progress * 2);
+
+                crainRT.transform.position = Vector3.Lerp(crainRtInitialPosition, crainRtTargetPosition, progress * 2);
+
             }
             else
             {
                 Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
                 transform.rotation = Quaternion.Lerp(Quaternion.Euler(0f, 0f, targetAngle), targetRotation, (progress - 0.5f) * 2);
+
+                crainRT.transform.position = Vector3.Lerp(crainRtTargetPosition, crainRtInitialPosition, (progress - 0.5f) * 2);
+
             }
 
             yield return null;

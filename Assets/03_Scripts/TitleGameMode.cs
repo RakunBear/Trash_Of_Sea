@@ -36,7 +36,7 @@ public class TitleGameMode : MonoBehaviour
     IEnumerator NextSceneLoading() {
 
         DBManager.TargetBookName = "Book1";
-        DBManager.NextSceneName = "CrainGame";
+        DBManager.NextSceneName = "CrainGame_HandTrack";
         yield return zoomEffect.RunZoomIn();
         LoadingScene.LoadScene(SceneName);
     }
