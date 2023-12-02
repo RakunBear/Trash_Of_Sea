@@ -8,6 +8,8 @@ public class TrackingDataReciver : MonoBehaviour
 {
     [SerializeField] Image _lImg;
     [SerializeField] Image _rImg;
+    [Header("Sensertive"), Range(0,1)]
+    public float Sensertive = 0.4f;
 
     public Action<bool> LeftOnValueChage;
     public Action<bool> RightOnValueChange;
@@ -50,6 +52,7 @@ public class TrackingDataReciver : MonoBehaviour
     {
         while (true)
         {
+            // Debug.Log($"L : {TrackingDataSender.LeftHandStatus.IsActive}+{TrackingDataSender.LeftHandStatus.Position.z} - R : {TrackingDataSender.RightHandStatus.IsActive}");
             // 왼쪽손
             if (TrackingDataSender.LeftHandStatus.IsActive)
             {
@@ -75,6 +78,7 @@ public class TrackingDataReciver : MonoBehaviour
             if (TrackingDataSender.RightHandStatus.IsActive)
             {
                 int code = CheckPass(TrackingDataSender.RightHandStatus.Position.z);
+
                 if (code == 1)
                 {
                     RightHandMethod(true);
@@ -117,12 +121,11 @@ public class TrackingDataReciver : MonoBehaviour
 
     private int CheckPass(float depth)
     {
-        Debug.Log("Depth: " + depth);
-        if (0.1f < depth && depth < 0.5f)
+        if (0.1f < depth && depth < Sensertive)
         {
             return 1;
         }
-        else if (depth > 0.5f)
+        else if (depth > Sensertive)
         {
             return 2;
         }

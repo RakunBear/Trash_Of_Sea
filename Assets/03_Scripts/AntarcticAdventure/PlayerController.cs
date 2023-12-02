@@ -4,10 +4,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private bool isMoving = true;
-    public int isLeft = 1;
-    public int isRight = 1;
-
-    public float moveSpeed = 3f;
+    public static int isLeft = 1;
+    public static int isRight = 1;
+    public static float moveSpeed = 10f;
 
     void Update()
     {

@@ -41,6 +41,7 @@ public class TimingManager : MonoBehaviour
                             Debug.Log("Left Hit");
                             boxNoteList.RemoveAt(i);
                             Destroy(t_note);
+                            RhythmGameManager.Instance.IncreaseScore();
                         }
                         else if (note.direction == BaseNote.NoteDirection.Right)
                         {
@@ -48,6 +49,7 @@ public class TimingManager : MonoBehaviour
                             Debug.Log("Right Hit");
                             boxNoteList.RemoveAt(i);
                             Destroy(t_note);
+                            RhythmGameManager.Instance.IncreaseScore();
                         }
                     }
 
