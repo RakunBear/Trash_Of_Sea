@@ -43,15 +43,6 @@ namespace Mediapipe.Unity
     {
       ApplyLineWidth(0.0f);
       _lineRenderer.SetPositions(_EmptyPositions);
-      
-      if (currentHandedness == Hand.Left)
-      {
-        TrackingDataSender.LeftHandStatus.IsActive = false;
-      } 
-      else if (currentHandedness == Hand.Right)
-      {
-        TrackingDataSender.RightHandStatus.IsActive = false;
-      }
     }
 
 #if UNITY_EDITOR
@@ -205,16 +196,16 @@ namespace Mediapipe.Unity
     {
       _targetRect.localPosition = prevPos;
       _targetRect.sizeDelta = prevSize;
-
+  
       if (handedness == Hand.Left)
       {
-        TrackingDataSender.LeftHandStatus.Position = prevPos;
+        TrackingDataSender.LeftHandStatus.Position = new Vector3(prevPos.x, prevPos.y, Mathf.Clamp(prevSize.y/UnityEngine.Screen.height, 0, 1));
         TrackingDataSender.LeftHandStatus.NomerizedPos = nomerizedPos;
         TrackingDataSender.LeftHandStatus.IsActive = true;
       }
       else
       {
-        TrackingDataSender.RightHandStatus.Position = prevPos;
+        TrackingDataSender.RightHandStatus.Position = new Vector3(prevPos.x, prevPos.y, Mathf.Clamp(prevSize.y/UnityEngine.Screen.height, 0, 1));
         TrackingDataSender.RightHandStatus.NomerizedPos = nomerizedPos;
         TrackingDataSender.RightHandStatus.IsActive = true;
       }
@@ -223,6 +214,7 @@ namespace Mediapipe.Unity
     public void SetHandedness(Hand handedness)
     {
       currentHandedness = handedness;
+
       if (handedness == Hand.Left)
       {
         SetColor(_leftRectColor);
@@ -233,6 +225,7 @@ namespace Mediapipe.Unity
         SetColor(_rightRectColor);
         Tracking(handedness);
       }
+
     }
 
     public void SetHandedness(IList<Classification> handedness)
