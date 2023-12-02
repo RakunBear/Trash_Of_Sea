@@ -52,7 +52,7 @@ public class TrackingDataReciver : MonoBehaviour
     {
         while (true)
         {
-            // Debug.Log($"L : {TrackingDataSender.LeftHandStatus.IsActive}+{TrackingDataSender.LeftHandStatus.Position.z} - R : {TrackingDataSender.RightHandStatus.IsActive}");
+            Debug.Log($"L : {TrackingDataSender.LeftHandStatus.IsActive}+{TrackingDataSender.LeftHandStatus.Position.z} - R : {TrackingDataSender.RightHandStatus.IsActive}");
             // 왼쪽손
             if (TrackingDataSender.LeftHandStatus.IsActive)
             {

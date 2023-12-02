@@ -16,9 +16,9 @@ public class StickController : MonoBehaviour
     private float progress = 0f;
 
     Vector3 LTInitialPosition = new Vector3(-3f, 5f, -3f);
-    Vector3 LTTargetPosition = new Vector3(-3f, 1f, -3f);
+    Vector3 LTTargetPosition = new Vector3(-3f, 2f, -3f);
     Vector3 RTInitialPosition = new Vector3(1f, 5f, -3f);
-    Vector3 RTTargetPosition = new Vector3(1f, 1f, -3f);
+    Vector3 RTTargetPosition = new Vector3(1f, 2f, -3f);
 
     public GameObject ltHook;
     public GameObject rtHook;
@@ -134,13 +134,15 @@ public class StickController : MonoBehaviour
         if (other.gameObject.CompareTag("Cube_lt") && gameObject.tag == "Stick_Red")
         {
             Rigidbody cubeRb = other.gameObject.GetComponent<Rigidbody>();
-            cubeRb.AddForce(Vector3.down * 10f, ForceMode.VelocityChange);
+            //cubeRb.AddForce(Vector3.down * 10f, ForceMode.VelocityChange);
+            Destroy(other.gameObject);
             timingManager.CheckTiming();
         }
         else if (other.gameObject.CompareTag("Cube_rt") && gameObject.tag == "Stick_Blue")
         {
             Rigidbody cubeRb = other.gameObject.GetComponent<Rigidbody>();
-            cubeRb.AddForce(Vector3.down * 10f, ForceMode.VelocityChange);
+            //cubeRb.AddForce(Vector3.down * 10f, ForceMode.VelocityChange);
+            Destroy(other.gameObject);
             timingManager.CheckTiming();
         }
 
