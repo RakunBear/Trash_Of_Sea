@@ -65,6 +65,5 @@ public class RhythmGameManager : MonoBehaviour
     public void ResetGame()
     {
         score = 0;
-        /*Destroy(this.gameObject);*/
     }
 }

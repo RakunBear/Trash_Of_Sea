@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01_Scenes/Antarctic_Adventure.unity
     guid: 6e302dabe6e390a4bb503584d44803d4
+  - enabled: 1
+    path: Assets/01_Scenes/CrainGame_HandTrack.unity
+    guid: cc18d2b1e8814344a97dcc76080cd9f2
   m_configObjects: {}

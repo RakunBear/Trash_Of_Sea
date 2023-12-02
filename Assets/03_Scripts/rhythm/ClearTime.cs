@@ -48,18 +48,13 @@ public class ClearTime: MonoBehaviour
 
     public void ClearStage1()
     {
-        DBManager.NextSceneName = "Antarctic_Adventure";
         RhythmGameManager.Instance.ResetGame();
-        LoadingScene.LoadScene(DBManager.NextSceneName);
+        /*        DBManager.NextSceneName = "Antarctic_Adventure";
+                LoadingScene.LoadScene(DBManager.NextSceneName);*/
+        SceneManager.LoadScene("Antarctic_Adventure");
     }
 
     public void FailStage1()
-    {
-        DBManager.NextSceneName = "Title";
-        LoadingScene.LoadScene(DBManager.NextSceneName);
-    }
-
-    public void ClearStage2()
     {
         DBManager.NextSceneName = "Title";
         LoadingScene.LoadScene(DBManager.NextSceneName);
