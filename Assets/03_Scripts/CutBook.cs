@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CutBook : MonoBehaviour
 {
     public Image[] CutImgs;
-    public float FadeTime = 1.0f;
+    public float FadeTime = 2.0f;
     private int cutIndex;
 
     public void Init() {

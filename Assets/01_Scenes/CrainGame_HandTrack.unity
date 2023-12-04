@@ -1707,6 +1707,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: hook_lt
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bdd8a7c84ff469f4b81e11551d43149b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdd8a7c84ff469f4b81e11551d43149b, type: 3}
 --- !u!1 &1086460570 stripped
@@ -2266,6 +2271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: hook _rt
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bdd8a7c84ff469f4b81e11551d43149b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdd8a7c84ff469f4b81e11551d43149b, type: 3}
@@ -4368,7 +4378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2027766746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4502,7 +4512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2069005110
 MonoBehaviour:
   m_ObjectHideFlags: 0

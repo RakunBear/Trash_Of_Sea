@@ -12,6 +12,11 @@ public class ClearTime: MonoBehaviour
     public GameObject clearButton;
     public GameObject failButton;
 
+    private void Start()
+    {
+        ClearStage1();
+    }
+
     void Update()
     {
         if (!isGameClear)
@@ -49,9 +54,10 @@ public class ClearTime: MonoBehaviour
     public void ClearStage1()
     {
         RhythmGameManager.Instance.ResetGame();
-        /*        DBManager.NextSceneName = "Antarctic_Adventure";
-                LoadingScene.LoadScene(DBManager.NextSceneName);*/
-        SceneManager.LoadScene("Antarctic_Adventure");
+        DBManager.TargetBookName = "Book2";
+        DBManager.NextSceneName = "Antarctic_Adventure";
+        LoadingScene.LoadScene("CutScene");
+ /*       LoadingScene.LoadScene(DBManager.NextSceneName);*/
     }
 
     public void FailStage1()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2875774325187435197}
   - component: {fileID: 5602588425152423482}
   m_Layer: 5
-  m_Name: Book1
+  m_Name: Book2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d4655cc55b6509542a5efdc27514b224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bdaa9fdc3f793643b84b5800f973938, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 46e8921bd7a746a4c96a8298fd93ed0b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed11850c7fdc40c4f8dd4cd1d7196b74, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 10a342cf3d7f6c449a1b727501c867be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 800aa42629c23664ab57d29496146cdb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85575adcb9efcc94aab3eb1f856e344f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d1f76ca7bb911544ab92af9a4ab2ec2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
