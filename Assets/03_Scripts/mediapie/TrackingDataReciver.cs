@@ -52,17 +52,17 @@ public class TrackingDataReciver : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log($"L : {TrackingDataSender.LeftHandStatus.IsActive}+{TrackingDataSender.LeftHandStatus.Position.z} - R : {TrackingDataSender.RightHandStatus.IsActive}");
+            // Debug.Log($"L : {TrackingDataSender.LeftHandStatus.IsActive}+{TrackingDataSender.LeftHandStatus.Position.z} - R : {TrackingDataSender.RightHandStatus.IsActive}");
             // 왼쪽손
             if (TrackingDataSender.LeftHandStatus.IsActive)
             {
                 int code = CheckPass(TrackingDataSender.LeftHandStatus.Position.z);
                 //인식 (가까이)
-                if (code == 1)
+                if (code == 2)
                 {
                     LeftHandMethod(true);
                 }
-                else if (code == 2) // depth 멀리
+                else if (code == 1) // depth 멀리
                 {
                     LeftHandMethod(false);
                 }
@@ -79,12 +79,12 @@ public class TrackingDataReciver : MonoBehaviour
             {
                 int code = CheckPass(TrackingDataSender.RightHandStatus.Position.z);
 
-                if (code == 1)
+                if (code == 2)
                 {
                     RightHandMethod(true);
                     
                 }
-                else if (code == 2)
+                else if (code == 1)
                 {
                     RightHandMethod(false);
                 }

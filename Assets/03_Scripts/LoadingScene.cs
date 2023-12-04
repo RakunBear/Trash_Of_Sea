@@ -25,11 +25,6 @@ public class LoadingScene : MonoBehaviour
     IEnumerator LoadingReserveScene() {
         Instantiate(BackgroundPrefab, transform).TryGetComponent(out backgroundImg);
 
-        Debug.Log("SFSF");
-        if (backgroundImg == null) {
-            Debug.LogError($"Mising Background Img");
-            SceneManager.LoadScene(ReserveSceneName);
-        }
         Sequence sequence = 
             backgroundImg.FadeInOut(1.0f, true)
             .Play()
@@ -54,6 +49,8 @@ public class LoadingScene : MonoBehaviour
         while (!op.isDone) {
             yield return null;
         }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(ReserveSceneName));
+        CamTest.Instance.CamInit();
         
         backgroundImg.FadeInOut(1.0f, false)
             .Play()
