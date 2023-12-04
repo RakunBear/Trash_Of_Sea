@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class TitleGameMode : MonoBehaviour
 {
+    [SerializeField]
+    TrackingDataReciver _trackingDataReciver;
     public TextMeshProUGUI StartText;
     public float StartDelay = 1.0f;
     public float FadeTime = 1.0f;
@@ -17,14 +19,35 @@ public class TitleGameMode : MonoBehaviour
     public string SceneName;
 
     Sequence sequence;
+    Coroutine coroutine;
 
-    private void Start() {
-        zoomEffect.SetEffect();
-        StartCoroutine(StartingAnimation());
+    private void Awake() {
+        SceneManager.LoadScene("Hand Tracking", LoadSceneMode.Additive);
     }
 
+    public  void Init() {
+        zoomEffect.SetEffect();
+        StartCoroutine(StartingAnimation());
+        _trackingDataReciver.LeftOnValueChage += PressStart;
+        _trackingDataReciver.RightOnValueChange += PressStart;
+    }
+
+    private void OnDestroy() {
+        _trackingDataReciver.LeftOnValueChage -= PressStart;
+        _trackingDataReciver.RightOnValueChange -= PressStart;
+    }
+
+    private void PressStart(bool isNear)
+    {
+        if (isNear)
+        {
+            PressStart();
+        }
+    }
     public void PressStart() {
-        StartCoroutine(NextSceneLoading());
+        if (coroutine != null) return;
+
+        coroutine = StartCoroutine(NextSceneLoading());
     }
 
     IEnumerator StartingAnimation() {
