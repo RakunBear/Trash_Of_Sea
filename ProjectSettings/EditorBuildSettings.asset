@@ -15,12 +15,15 @@ EditorBuildSettings:
     path: Assets/01_Scenes/CutScene.unity
     guid: 26f120ebc13058747a9072e41abab2cd
   - enabled: 1
-    path: Assets/01_Scenes/CrainGame.unity
-    guid: 1c1479379aa822b4cade891ad70ee1b8
-  - enabled: 1
     path: Assets/01_Scenes/Antarctic_Adventure.unity
     guid: 6e302dabe6e390a4bb503584d44803d4
   - enabled: 1
     path: Assets/01_Scenes/CrainGame_HandTrack.unity
     guid: cc18d2b1e8814344a97dcc76080cd9f2
+  - enabled: 1
+    path: Assets/01_Scenes/Hand Tracking.unity
+    guid: 9aaa29974deb93d42b291c4c98ff71e3
+  - enabled: 1
+    path: Assets/01_Scenes/StartUP.unity
+    guid: 72259cb345870de4f96fb708c2057c91
   m_configObjects: {}

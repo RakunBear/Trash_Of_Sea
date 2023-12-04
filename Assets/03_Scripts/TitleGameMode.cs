@@ -21,10 +21,6 @@ public class TitleGameMode : MonoBehaviour
     Sequence sequence;
     Coroutine coroutine;
 
-    private void Awake() {
-        SceneManager.LoadScene("Hand Tracking", LoadSceneMode.Additive);
-    }
-
     public  void Init() {
         zoomEffect.SetEffect();
         StartCoroutine(StartingAnimation());

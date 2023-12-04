@@ -14,7 +14,6 @@ public class ClearTime: MonoBehaviour
 
     private void Start()
     {
-        ClearStage1();
     }
 
     void Update()
