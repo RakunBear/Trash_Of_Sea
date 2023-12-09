@@ -3,10 +3,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    TrackingDataReciver _trackingDataReciver;
+
     private bool isMoving = true;
     public static int isLeft = 1;
     public static int isRight = 1;
     public static float moveSpeed = 10f;
+
+    private void OnDestroy()
+    {
+        _trackingDataReciver.LeftOnValueChage -= MoveLeft;
+        _trackingDataReciver.RightOnValueChange -= MoveRight;
+    }
+
+
+    private void Start()
+    {
+        _trackingDataReciver.LeftOnValueChage += MoveLeft;
+        _trackingDataReciver.RightOnValueChange += MoveRight;
+    }
 
     void Update()
     {
@@ -27,6 +43,26 @@ public class PlayerController : MonoBehaviour
                 isLeft--;
                 isRight++;
             }
+        }
+    }
+
+    public void MoveLeft(bool isSwing)
+    {
+        if (isMoving)
+        {
+            MoveSideways(-3f);
+            isLeft++;
+            isRight--;
+        }
+    }
+
+    public void MoveRight(bool isSwing)
+    {
+        if (isMoving)
+        {
+            MoveSideways(3f);
+            isLeft--;
+            isRight++;
         }
     }
 
