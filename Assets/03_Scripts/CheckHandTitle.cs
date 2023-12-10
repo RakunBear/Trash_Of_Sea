@@ -49,6 +49,7 @@ public class CheckHandTitle : MonoBehaviour
     {
         if (isNear)
         {
+            SoundBox.Box.ChangeSFX(SoundBox.Box.CheckHandSFX);
             trackingDataReciver.LeftOnValueChage -= CheckNearHandL;
             leftCheck.SetActive(true);
             lCheck = true;
@@ -59,6 +60,7 @@ public class CheckHandTitle : MonoBehaviour
     {
         if(isNear)
         {
+            SoundBox.Box.ChangeSFX(SoundBox.Box.CheckHandSFX);
             trackingDataReciver.RightOnValueChange -= CheckNearHandR;
             rightCheck.SetActive(true);
             rCheck = true;
@@ -87,6 +89,7 @@ public class CheckHandTitle : MonoBehaviour
     {
         if (!isNear)
         {
+            SoundBox.Box.ChangeSFX(SoundBox.Box.CheckHandSFX);
             trackingDataReciver.LeftOnValueChage -= CheckFarHandL;
             leftCheck.SetActive(true);
             lCheck = true;
@@ -97,6 +100,7 @@ public class CheckHandTitle : MonoBehaviour
     {
         if(!isNear)
         {
+            SoundBox.Box.ChangeSFX(SoundBox.Box.CheckHandSFX);
             trackingDataReciver.RightOnValueChange -= CheckFarHandR;
             rightCheck.SetActive(true);
             rCheck = true;

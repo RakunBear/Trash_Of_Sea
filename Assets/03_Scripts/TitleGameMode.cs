@@ -21,6 +21,11 @@ public class TitleGameMode : MonoBehaviour
     Sequence sequence;
     Coroutine coroutine;
 
+    void Start()
+    {
+        SoundBox.Box.ChangeBGM(SoundBox.Box.TitleBGM);
+    }
+
     public  void Init() {
         zoomEffect.SetEffect();
         StartCoroutine(StartingAnimation());

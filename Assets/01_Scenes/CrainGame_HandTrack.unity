@@ -2549,6 +2549,8 @@ MonoBehaviour:
   - {fileID: 1138262253}
   - {fileID: 1190461498}
   - {fileID: 712019477}
+  HitParticle: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7,
+    type: 3}
 --- !u!114 &1731587309
 MonoBehaviour:
   m_ObjectHideFlags: 0
