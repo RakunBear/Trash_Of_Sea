@@ -10,6 +10,9 @@ public class TimingManager : MonoBehaviour
     [SerializeField] RectTransform[] timingRect = null;
     Vector2[] timingBoxs = null;
 
+    public GameObject HitParticle;
+
+
     void Start()
     {
         timingBoxs = new Vector2[timingRect.Length];
@@ -40,6 +43,10 @@ public class TimingManager : MonoBehaviour
                             // Left 노트와 상호작용하는 코드
                             Debug.Log("Left Hit");
                             boxNoteList.RemoveAt(i);
+                            Vector3 pos = new Vector3(-1.5f, 0f, -6f);
+                            GameObject obj = Instantiate(HitParticle, pos, Quaternion.identity);
+                            obj.SetActive(true);
+                            Debug.Log(obj.transform.position);
                             Destroy(t_note);
                             RhythmGameManager.Instance.IncreaseScore();
                         }
@@ -48,6 +55,8 @@ public class TimingManager : MonoBehaviour
                             // Right 노트와 상호작용하는 코드
                             Debug.Log("Right Hit");
                             boxNoteList.RemoveAt(i);
+                            Vector3 pos = new Vector3(0.8f, 0f, -6f);
+                            Instantiate(HitParticle, pos, Quaternion.identity).SetActive(true);
                             Destroy(t_note);
                             RhythmGameManager.Instance.IncreaseScore();
                         }

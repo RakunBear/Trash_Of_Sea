@@ -121,7 +121,7 @@ public class TrackingDataReciver : MonoBehaviour
 
     private int CheckPass(float depth)
     {
-        if (0.1f < depth && depth < Sensertive)
+        if ( depth < Sensertive)
         {
             return 1;
         }

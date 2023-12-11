@@ -20,6 +20,7 @@ public class CutGameMode : MonoBehaviour
         if (cutBook) {
             yield return cutBook.Playing();
             yield return 3;
+            SoundBox.Box.ChangeBGM(null);
             LoadingScene.LoadScene(DBManager.NextSceneName);
         }
     }

@@ -42,7 +42,7 @@ public class CamTest : MonoBehaviour
             if (t >= 2.0f)
                 yield break;
             _canvas.worldCamera = Camera.main;
-            Debug.Log(_canvas.worldCamera.name);
+            // Debug.Log(_canvas.worldCamera.name);
             yield return null;
         }
     }
