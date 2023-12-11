@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void Start()
+    private void Awake()
     {
         _trackingDataReciver.LeftOnValueChage += MoveLeft;
         _trackingDataReciver.RightOnValueChange += MoveRight;
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveLeft(bool isSwing)
     {
-        if (isMoving)
+        if (isMoving && isLeft < 2)
         {
             MoveSideways(-3f);
             isLeft++;
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveRight(bool isSwing)
     {
-        if (isMoving)
+        if (isMoving && isRight < 2)
         {
             MoveSideways(3f);
             isLeft--;
