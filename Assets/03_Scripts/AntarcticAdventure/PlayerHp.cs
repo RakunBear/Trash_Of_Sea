@@ -66,11 +66,13 @@ public class PlayerHp : MonoBehaviour
     void ShowClearButton()
     {
         clearButton.SetActive(true);
+        Invoke("ClearStage", 2f);
     }
 
     void ShowFailButton()
     {
         failButton.SetActive(true);
+        Invoke("FailStage", 2f);
     }
 
     public void ClearStage()
@@ -81,7 +83,7 @@ public class PlayerHp : MonoBehaviour
 
     public void FailStage()
     {
-        DBManager.NextSceneName = "Title";
+        DBManager.NextSceneName = "Antarctic_Adventure";
         LoadingScene.LoadScene(DBManager.NextSceneName);
     }
 

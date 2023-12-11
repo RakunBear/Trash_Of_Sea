@@ -10,11 +10,6 @@ public class ClearTime: MonoBehaviour
     private bool isGameClear = false; 
 
     public GameObject clearButton;
-    public GameObject failButton;
-
-    private void Start()
-    {
-    }
 
     void Update()
     {
@@ -25,17 +20,7 @@ public class ClearTime: MonoBehaviour
             if (currentTime >= gameTime)
             {
                 isGameClear = true;
-
-                if(RhythmGameManager.Instance.Score > 10)
-                {
                     ShowClearButton();
-                }
-
-                else if(RhythmGameManager.Instance.Score < 10)
-                {
-                    ShowFailButton();
-                }
-
             }
         }
     }
@@ -43,12 +28,9 @@ public class ClearTime: MonoBehaviour
     void ShowClearButton()
     {
         clearButton.SetActive(true);
+        Invoke("ClearStage1", 1.0f);
     }
 
-    void ShowFailButton()
-    {
-        failButton.SetActive(true);
-    }
 
     public void ClearStage1()
     {
