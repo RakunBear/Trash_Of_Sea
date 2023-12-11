@@ -27,7 +27,7 @@ public class RhythmGameManager : MonoBehaviour
     }
 
     [SerializeField]
-    private int score = 0;
+    public static int score = 0;
 
     public int Score
     {

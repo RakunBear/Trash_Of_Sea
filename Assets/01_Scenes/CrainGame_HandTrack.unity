@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e27722040e60548aba51165c993540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: 2
+  gameTime: 20
   clearButton: {fileID: 2027766745}
 --- !u!1001 &1086460569
 PrefabInstance:

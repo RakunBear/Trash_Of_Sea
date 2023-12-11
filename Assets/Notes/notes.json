@@ -8,9 +8,7 @@
 
 
       {"time": 1.5, "type": "lt"},
-      {"time": 2, "type": "lt"},
       {"time": 2.5, "type": "rt"},
-      {"time": 3, "type": "rt"},
       {"time": 3.5, "type": "lt"},
 
       {"time": 4.25, "type": "lt"},
@@ -23,8 +21,25 @@
       {"time": 7.5, "type": "lt"},
       {"time": 8, "type": "rt"},
       {"time": 8.5, "type": "rt"},
-      {"time": 9, "type": "lt"}
+      {"time": 9, "type": "lt"},
 
+      {"time": 9.75, "type": "rt"},
+      {"time": 10.25, "type": "rt"},
+      {"time": 10.75, "type": "lt"},
+      {"time": 11.25, "type": "lt"},
+      {"time": 11.75, "type": "rt"},
+
+      {"time": 12.5, "type": "lt"},
+      {"time": 13, "type": "lt"},
+      {"time": 13.5, "type": "rt"},
+      {"time": 14, "type": "rt"},
+      {"time": 14.5, "type": "lt"},
+
+      {"time": 15.25, "type": "rt"},
+      {"time": 15.75, "type": "rt"},
+      {"time": 16.25, "type": "lt"},
+      {"time": 16.75, "type": "lt"},
+      {"time": 17.25, "type": "rt"},
 
   ]
 }
