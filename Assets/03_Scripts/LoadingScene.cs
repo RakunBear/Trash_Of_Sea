@@ -30,7 +30,10 @@ public class LoadingScene : MonoBehaviour
             .Play()
             .OnComplete(()=> {
                 if (PrevScene != null)
+                {
+                    // Debug.Log(PrevScene.name);
                     SceneManager.UnloadSceneAsync(PrevScene);
+                }
             });
 
         while (sequence.IsPlaying()) {

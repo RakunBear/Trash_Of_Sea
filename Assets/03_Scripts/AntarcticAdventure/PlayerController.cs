@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public static int isLeft = 1;
     public static int isRight = 1;
     public static float moveSpeed = 10f;
+    public float MoveSpeed = 10f;
 
     private void OnDestroy()
     {
@@ -22,6 +23,12 @@ public class PlayerController : MonoBehaviour
     {
         _trackingDataReciver.LeftOnValueChage += MoveLeft;
         _trackingDataReciver.RightOnValueChange += MoveRight;
+    }
+
+    private void Start() {
+        isLeft = 1;
+        isRight = 1;
+        moveSpeed = MoveSpeed + RhythmGameManager.score / 5;
     }
 
     void Update()
