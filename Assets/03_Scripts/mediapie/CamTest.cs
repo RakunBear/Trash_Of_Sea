@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class CamTest : MonoBehaviour
 {
@@ -31,6 +33,7 @@ public class CamTest : MonoBehaviour
     public void CamInit()
     {
         StartCoroutine(GettingCamera());
+        
     }
 
     IEnumerator GettingCamera()
@@ -40,9 +43,17 @@ public class CamTest : MonoBehaviour
         {
             t += Time.deltaTime;
             if (t >= 2.0f)
-                yield break;
+                break;
             _canvas.worldCamera = Camera.main;
-            // Debug.Log(_canvas.worldCamera.name);
+            if (_canvas.worldCamera != null)
+            {
+                var stackCameraDatas =  _canvas.worldCamera.GetUniversalAdditionalCameraData().cameraStack;
+                if (stackCameraDatas.Count > 0)
+                {
+                    _canvas.worldCamera = stackCameraDatas[0];
+                }
+            }
+            
             yield return null;
         }
     }

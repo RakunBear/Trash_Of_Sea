@@ -58,7 +58,7 @@ MonoBehaviour:
   - {fileID: 2875774325468190234}
   - {fileID: 2875774325415481157}
   - {fileID: 6587909163118746858}
-  FadeTime: 1
+  FadeTime: 3
 --- !u!1 &2875774325385321819
 GameObject:
   m_ObjectHideFlags: 0

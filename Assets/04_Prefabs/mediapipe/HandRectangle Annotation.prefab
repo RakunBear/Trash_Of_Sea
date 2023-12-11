@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4965192403804369240}
   - component: {fileID: 4965192403804369241}
   - component: {fileID: -7410979705563249538}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HandRectangle Annotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}

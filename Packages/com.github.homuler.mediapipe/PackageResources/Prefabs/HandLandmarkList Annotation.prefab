@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4724242833946851652}
   - component: {fileID: 7426451068229116525}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HandLandmarkList Annotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 17314624880992430}
   - {fileID: 4340673029162133842}
@@ -60,6 +61,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Connection List Annotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 745748194542674601, guid: c97d04632e9be1a7cb05f6ab855b365b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 745748194542674602, guid: c97d04632e9be1a7cb05f6ab855b365b,
         type: 3}
@@ -177,6 +183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Point List Annotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215842904284588297, guid: e260d2f5fb90a790385fcb2d815b23a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9215842904284589814, guid: e260d2f5fb90a790385fcb2d815b23a6,
         type: 3}

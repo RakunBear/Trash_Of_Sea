@@ -39,7 +39,7 @@
       {"time": 15.75, "type": "rt"},
       {"time": 16.25, "type": "lt"},
       {"time": 16.75, "type": "lt"},
-      {"time": 17.25, "type": "rt"},
+      {"time": 17.25, "type": "rt"}
 
   ]
 }
